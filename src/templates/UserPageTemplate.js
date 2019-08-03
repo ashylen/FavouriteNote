@@ -3,19 +3,14 @@ import PropTypes from 'prop-types';
 
 import Sidebar from 'components/organisms/Sidebar/Sidebar';
 
-const UserPageTemplate = ({ children, pageType }) => (
+const UserPageTemplate = ({ children }) => (
   <React.Fragment>
-    <Sidebar pageType={pageType} />
+    <Sidebar />
     {children}
   </React.Fragment>
 );
 
-UserPageTemplate.defaultProps = {
-  pageType: 'notes',
-};
-
 UserPageTemplate.propTypes = {
-  pageType: PropTypes.oneOf(['notes', 'twitters', 'articles']),
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.node]).isRequired,
 };
 
