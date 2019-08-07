@@ -23,6 +23,7 @@ const StyledWrapper = styled.nav`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  z-index: 10;
 `;
 
 const StyledLogoLink = styled(NavLink)`
