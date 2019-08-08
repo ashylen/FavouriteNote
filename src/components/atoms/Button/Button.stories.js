@@ -1,7 +1,10 @@
 import React from 'react';
+
+// Modules
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select } from '@storybook/addon-knobs';
 
+// Components
 import Button from './Button';
 
 storiesOf('Atoms/Button', module)

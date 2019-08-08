@@ -1,5 +1,9 @@
 import React from 'react';
+
+// Modules
 import { storiesOf } from '@storybook/react';
+
+// Components
 import Heading from './Heading';
 
 storiesOf('Atoms/Heading', module)

@@ -1,18 +1,22 @@
 import React from 'react';
-import styled from 'styled-components';
+
+// Modules
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
+// Utilities
+import { authenticate as authenticateAction } from 'actions';
+import { routes } from 'routes';
+
+// Components
 import AuthTemplate from 'templates/AuthTemplate';
 import Heading from 'components/atoms/Heading/Heading';
 import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button';
-import { Link } from 'react-router-dom';
-import { routes } from 'routes';
-import { connect } from 'react-redux';
-import { authenticate as authenticateAction } from 'actions';
-import { Redirect } from 'react-router';
-import PropTypes from 'prop-types';
-
-// import axios from 'axios';
 
 const StyledForm = styled(Form)`
   display: flex;

@@ -1,10 +1,14 @@
 import React from 'react';
+
+// Modules
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
+// Utilities
 import { routes } from 'routes';
 import store from 'store';
 
+// Components
 import Articles from 'views/Articles';
 import DetailsPage from 'views/DetailsPage';
 import MainTemplate from 'templates/MainTemplate';

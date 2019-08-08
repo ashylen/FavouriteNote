@@ -1,5 +1,9 @@
 import React from 'react';
+
+// Modules
 import { storiesOf } from '@storybook/react';
+
+// Components
 import Input from './Input';
 
 storiesOf('Atoms/Input', module)

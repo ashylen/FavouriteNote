@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import DetailsTemplate from 'templates/DetailsTemplate';
-import withContext from 'hoc/withContext';
-import { connect } from 'react-redux';
+
+// Modules
 import axios from 'axios';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+// Utilities
+import withContext from 'hoc/withContext';
+
+// Components
+import DetailsTemplate from 'templates/DetailsTemplate';
 
 class DetailsPage extends Component {
   state = {

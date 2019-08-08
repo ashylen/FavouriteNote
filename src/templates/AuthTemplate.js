@@ -1,8 +1,12 @@
 import React from 'react';
+
+// Modules
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
+// Components
 import Heading from 'components/atoms/Heading/Heading';
 import logoImg from 'assets/icons/logo.svg';
-import PropTypes from 'prop-types';
 
 const StyledWrapper = styled.div`
   width: 100%;

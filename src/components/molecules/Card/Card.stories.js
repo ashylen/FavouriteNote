@@ -1,5 +1,9 @@
 import React from 'react';
+
+// Modules
 import { storiesOf } from '@storybook/react';
+
+// Components
 import Card from './Card';
 
 storiesOf('Molecules/Card', module).add('Normal', () => <Card />);

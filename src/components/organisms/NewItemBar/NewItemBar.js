@@ -1,13 +1,19 @@
 import React from 'react';
+
+// Modules
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Formik, Form } from 'formik';
+
+// Utilities
+import withContext from 'hoc/withContext';
+import { addItem as addItemAction } from 'actions';
+
+// Components
 import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button';
-import withContext from 'hoc/withContext';
 import Heading from 'components/atoms/Heading/Heading';
-import { connect } from 'react-redux';
-import { addItem as addItemAction } from 'actions';
-import { Formik, Form } from 'formik';
 
 const StyledWrapper = styled.div`
   border-left: 10px solid ${({ theme, activecolor }) => theme[activecolor]};
@@ -89,7 +95,7 @@ const NewItemBar = ({ pageContext, isVisible, addItem, handleClose }) => (
             value={values.content}
           />
           <Button type="submit" activecolor={pageContext}>
-            Add Note
+            Add {pageContext.substring(0, pageContext.length - 1)}
           </Button>
         </StyledForm>
       )}

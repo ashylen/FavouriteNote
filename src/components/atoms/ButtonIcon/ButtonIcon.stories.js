@@ -1,7 +1,10 @@
 import React from 'react';
+
+// Modules
 import styled from 'styled-components';
 import { storiesOf } from '@storybook/react';
 
+// Components
 import bulbIcon from 'assets/icons/bulb.svg';
 import logoutIcon from 'assets/icons/logout.svg';
 import penIcon from 'assets/icons/pen.svg';

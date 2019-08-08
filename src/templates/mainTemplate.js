@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+
+// Modules
 import { withRouter } from 'react-router';
+import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
+
+// Utilities
+import PageContext from 'context';
+
+// Components
 import GlobalStyle from 'theme/GlobalStyle';
 import { theme } from 'theme/MainTheme';
-import PageContext from 'context';
 
 class MainTemplate extends Component {
   state = {

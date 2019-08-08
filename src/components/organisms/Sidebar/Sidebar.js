@@ -1,15 +1,20 @@
 import React from 'react';
+
+// Modules
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
 import styled from 'styled-components';
+
+// Utilities
+import withContext from 'hoc/withContext';
+
+// Components
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
 import bulbIcon from 'assets/icons/bulb.svg';
 import logoutIcon from 'assets/icons/logout.svg';
 import penIcon from 'assets/icons/pen.svg';
 import twitterIcon from 'assets/icons/twitter.svg';
 import logoIcon from 'assets/icons/logo.svg';
-import withContext from 'hoc/withContext';
 
 const StyledWrapper = styled.nav`
   position: fixed;
