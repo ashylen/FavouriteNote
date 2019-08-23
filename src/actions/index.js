@@ -20,7 +20,7 @@ export const authenticate = (username, password) => dispatch => {
   dispatch({ type: AUTH_REQUEST });
 
   return axios
-    .post('http://localhost:9000/api/user/login', {
+    .post('https://favnote-backend.herokuapp.com/api/user/login', {
       username,
       password,
     })
@@ -29,7 +29,6 @@ export const authenticate = (username, password) => dispatch => {
       dispatch({ type: AUTH_SUCCESS, payload });
     })
     .catch(() => {
-      // console.log(err);
       dispatch({ type: AUTH_FAILURE });
     });
 };
@@ -38,7 +37,7 @@ export const fetchItems = itemType => (dispatch, getState) => {
   dispatch({ type: FETCH_REQUEST });
 
   return axios
-    .get('http://localhost:9000/api/notes/type', {
+    .get('https://favnote-backend.herokuapp.com/api/notes/type', {
       params: {
         type: itemType,
         userID: getState().userID,
@@ -63,7 +62,7 @@ export const removeItem = (itemType, id) => dispatch => {
   dispatch({ type: REMOVE_ITEM_REQUEST });
 
   axios
-    .delete(`http://localhost:9000/api/note/${id}`)
+    .delete(`https://favnote-backend.herokuapp.com/api/note/${id}`)
     .then(() => {
       dispatch({
         type: REMOVE_ITEM_SUCCESS,
@@ -81,9 +80,9 @@ export const removeItem = (itemType, id) => dispatch => {
 
 export const addItem = (itemType, itemContent) => (dispatch, getState) => {
   dispatch({ type: ADD_ITEM_REQUEST });
-
+  // console.log(process.env);
   return axios
-    .post('http://localhost:9000/api/note', {
+    .post(`${process.env.REACT_APP_API_URL}/api/note`, {
       userID: getState().userID,
       type: itemType,
       ...itemContent,

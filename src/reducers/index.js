@@ -2,12 +2,14 @@ import {
   ADD_ITEM_SUCCESS,
   REMOVE_ITEM_SUCCESS,
   AUTH_SUCCESS,
+  AUTH_FAILURE,
   FETCH_REQUEST,
   FETCH_SUCCESS,
 } from 'actions';
 
 const initialState = {
-  userID: '5ca8f00a097c3394e62f64ab',
+  // userID: '5ca8f00a097c3394e62f64ab',
+  userID: '',
   isLoading: false,
 };
 
@@ -28,6 +30,13 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         userID: action.payload.data._id,
+        isLoginFailed: false,
+      };
+    case AUTH_FAILURE:
+      return {
+        ...state,
+        userID: null,
+        isLoginFailed: true,
       };
     case ADD_ITEM_SUCCESS:
       return {

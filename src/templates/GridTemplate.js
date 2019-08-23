@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // Modules
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 // Utilities
 import withContext from 'hoc/withContext';
@@ -75,7 +76,7 @@ class GridTemplate extends Component {
   };
 
   render() {
-    const { children, pageContext } = this.props;
+    const { children, pageContext, itemsCount } = this.props;
     const { isNewItemBarVisible } = this.state;
 
     return (
@@ -86,7 +87,9 @@ class GridTemplate extends Component {
             <StyledHeading big as="h1">
               {pageContext}
             </StyledHeading>
-            <StyledParagraph>6 {pageContext}</StyledParagraph>
+            <StyledParagraph>
+              {itemsCount} {pageContext}
+            </StyledParagraph>
           </StyledPageHeader>
           <StyledGrid>{children}</StyledGrid>
           <StyledButtonIcon
@@ -103,11 +106,24 @@ class GridTemplate extends Component {
 
 GridTemplate.defaultProps = {
   pageContext: 'notes',
+  itemsCount: 0,
 };
 
 GridTemplate.propTypes = {
   pageContext: PropTypes.oneOf(['notes', 'twitters', 'articles']),
   children: PropTypes.arrayOf(PropTypes.object).isRequired,
+  itemsCount: PropTypes.number,
 };
 
-export default withContext(GridTemplate);
+const mapStateToProps = (state, ownProps) => {
+  const { pageContext } = ownProps;
+  let { itemsCount } = state;
+
+  if (state[pageContext]) {
+    itemsCount = state[pageContext].length;
+  }
+
+  return { itemsCount };
+};
+
+export default withContext(connect(mapStateToProps)(GridTemplate));
