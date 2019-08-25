@@ -19,6 +19,7 @@ class Notes extends Component {
 
   render() {
     const { notes } = this.props;
+
     return (
       <GridTemplate>
         {notes.map(({ title, content, twitterName, created, _id: id }) => (

@@ -31,7 +31,7 @@ const InnerWrapper = styled.div`
   position: relative;
 
   :first-of-type {
-    z-index: 9999;
+    z-index: 100;
   }
 
   ${({ flex }) =>

@@ -7,7 +7,8 @@ import {
 } from 'actions';
 
 const initialState = {
-  userID: '5ca8f00a097c3394e62f64ab',
+  // userID:  '5ca8f00a097c3394e62f64ab',
+  userID: '',
   isLoading: false,
 };
 

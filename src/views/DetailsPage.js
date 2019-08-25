@@ -30,7 +30,7 @@ class DetailsPage extends Component {
     } else {
       const { match } = this.props;
       const { id } = match.params;
-      axios.get(`http://localhost:9000/api/note/${id}`).then(({ data }) => {
+      axios.get(`https://favnote-backend.herokuapp.com/api/note/${id}`).then(({ data }) => {
         this.setState({ activeItem: data });
       });
       // .catch(err => console.log(err));

@@ -17,7 +17,7 @@ import Heading from 'components/atoms/Heading/Heading';
 
 const StyledWrapper = styled.div`
   border-left: 10px solid ${({ theme, activecolor }) => theme[activecolor]};
-  z-index: 9999;
+  z-index: 300;
   position: fixed;
   display: flex;
   padding: 100px 90px;

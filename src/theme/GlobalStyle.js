@@ -1,8 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
+require('typeface-montserrat');
+
 const GlobalStyle = createGlobalStyle`
 
-    @import url('https://fonts.googleapis.com/css?family=Montserrat:300,600&display=swap');
 
     *,*:before, *:after{
         box-sizing:border-box;
