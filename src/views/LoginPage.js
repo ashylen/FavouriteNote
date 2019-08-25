@@ -46,54 +46,56 @@ const StyledError = styled.div`
   padding: 10px;
 `;
 
-const LoginPage = ({ userID, authenticate, isLoginFailed }) => (
-  <AuthTemplate>
-    <Formik
-      initialValues={{ username: '', password: '' }}
-      onSubmit={({ username, password }) => {
-        // console.log(isLoginFailed);
+const LoginPage = ({ userID, authenticate, isLoginFailed }) => {
+  return (
+    <AuthTemplate>
+      <Formik
+        initialValues={{ username: '', password: '' }}
+        onSubmit={({ username, password }) => {
+          // console.log(isLoginFailed);
 
-        authenticate(username, password);
-      }}
-    >
-      {({ handleChange, handleBlur, values }) => {
-        if (userID) {
-          return <Redirect to={routes.home} />;
-        }
+          authenticate(username, password);
+        }}
+      >
+        {({ handleChange, handleBlur, values }) => {
+          if (userID) {
+            return <Redirect to={routes.home} />;
+          }
 
-        return (
-          <React.Fragment>
-            <Heading>{userID}</Heading>
-            <Heading>Sign in</Heading>
-            <StyledForm>
-              <StyledInput
-                type="text"
-                name="username"
-                placeholder="Login"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.title}
-              />
-              <StyledInput
-                type="password"
-                name="password"
-                placeholder="Password"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.title}
-              />
-              <Button activecolor="notes" type="submit">
-                sign in
-              </Button>
-            </StyledForm>
-            {isLoginFailed ? <StyledError>Invalid credentials</StyledError> : null}
-            <StyledLink to={routes.register}>I want my account!</StyledLink>
-          </React.Fragment>
-        );
-      }}
-    </Formik>
-  </AuthTemplate>
-);
+          return (
+            <React.Fragment>
+              <Heading>{userID}</Heading>
+              <Heading>Sign in</Heading>
+              <StyledForm>
+                <StyledInput
+                  type="text"
+                  name="username"
+                  placeholder="Login"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.title}
+                />
+                <StyledInput
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.title}
+                />
+                <Button activecolor="notes" type="submit">
+                  sign in
+                </Button>
+              </StyledForm>
+              {isLoginFailed ? <StyledError>Invalid credentials</StyledError> : null}
+              <StyledLink to={routes.register}>I want my account!</StyledLink>
+            </React.Fragment>
+          );
+        }}
+      </Formik>
+    </AuthTemplate>
+  );
+};
 
 LoginPage.defaultProps = {
   userID: '',

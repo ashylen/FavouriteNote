@@ -20,7 +20,7 @@ export const authenticate = (username, password) => dispatch => {
   dispatch({ type: AUTH_REQUEST });
 
   return axios
-    .post('https://favnote-backend.herokuapp.com/api/user/login', {
+    .post(`${process.env.REACT_APP_API_URL}/api/user/login`, {
       username,
       password,
     })
@@ -37,7 +37,7 @@ export const fetchItems = itemType => (dispatch, getState) => {
   dispatch({ type: FETCH_REQUEST });
 
   return axios
-    .get('https://favnote-backend.herokuapp.com/api/notes/type', {
+    .get(`${process.env.REACT_APP_API_URL}/api/notes/type`, {
       params: {
         type: itemType,
         userID: getState().userID,
@@ -62,7 +62,7 @@ export const removeItem = (itemType, id) => dispatch => {
   dispatch({ type: REMOVE_ITEM_REQUEST });
 
   axios
-    .delete(`https://favnote-backend.herokuapp.com/api/note/${id}`)
+    .delete(`${process.env.REACT_APP_API_URL}/api/note/${id}`)
     .then(() => {
       dispatch({
         type: REMOVE_ITEM_SUCCESS,
