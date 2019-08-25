@@ -77,9 +77,8 @@ const mapStateToProps = (state, ownProps) => {
       activeItem: state[ownProps.pageContext].filter(item => item._id === ownProps.match.params.id),
     };
   }
-
   return {
-    activeItem: state[ownProps.pageContext].filter(item => item._id === ownProps.match.params.id),
+    activeItem: null,
   };
 };
 

@@ -40,11 +40,19 @@ const StyledLink = styled(Link)`
   margin: 20px 0 50px;
 `;
 
-const LoginPage = ({ userID, authenticate }) => (
+const StyledError = styled.div`
+  background-color: #fff;
+  color: red;
+  padding: 10px;
+`;
+
+const LoginPage = ({ userID, authenticate, isLoginFailed }) => (
   <AuthTemplate>
     <Formik
       initialValues={{ username: '', password: '' }}
       onSubmit={({ username, password }) => {
+        // console.log(isLoginFailed);
+
         authenticate(username, password);
       }}
     >
@@ -54,7 +62,7 @@ const LoginPage = ({ userID, authenticate }) => (
         }
 
         return (
-          <>
+          <React.Fragment>
             <Heading>{userID}</Heading>
             <Heading>Sign in</Heading>
             <StyledForm>
@@ -78,8 +86,9 @@ const LoginPage = ({ userID, authenticate }) => (
                 sign in
               </Button>
             </StyledForm>
+            {isLoginFailed ? <StyledError>Invalid credentials</StyledError> : null}
             <StyledLink to={routes.register}>I want my account!</StyledLink>
-          </>
+          </React.Fragment>
         );
       }}
     </Formik>
@@ -88,19 +97,22 @@ const LoginPage = ({ userID, authenticate }) => (
 
 LoginPage.defaultProps = {
   userID: '',
+  isLoginFailed: false,
 };
 
 LoginPage.propTypes = {
   userID: PropTypes.string,
   authenticate: PropTypes.func.isRequired,
+  isLoginFailed: PropTypes.bool,
 };
 
 const mapDispatchToProps = dispatch => ({
   authenticate: (username, password) => dispatch(authenticateAction(username, password)),
 });
 
-const mapStateToProps = ({ userID = null }) => ({
+const mapStateToProps = ({ userID = null, isLoginFailed = false }) => ({
   userID,
+  isLoginFailed,
 });
 
 export default connect(

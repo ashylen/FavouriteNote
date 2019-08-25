@@ -29,7 +29,6 @@ export const authenticate = (username, password) => dispatch => {
       dispatch({ type: AUTH_SUCCESS, payload });
     })
     .catch(() => {
-      // console.log(err);
       dispatch({ type: AUTH_FAILURE });
     });
 };
@@ -81,9 +80,9 @@ export const removeItem = (itemType, id) => dispatch => {
 
 export const addItem = (itemType, itemContent) => (dispatch, getState) => {
   dispatch({ type: ADD_ITEM_REQUEST });
-
+  // console.log(process.env);
   return axios
-    .post('https://favnote-backend.herokuapp.com/api/note', {
+    .post(`${process.env.REACT_APP_API_URL}/api/note`, {
       userID: getState().userID,
       type: itemType,
       ...itemContent,
