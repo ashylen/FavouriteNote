@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 // Components
 import Heading from 'components/atoms/Heading/Heading';
-import logoImg from 'assets/icons/logo.svg';
+import logoImg from 'assets/icons/edit.svg';
 
 const StyledWrapper = styled.div`
   width: 100%;
