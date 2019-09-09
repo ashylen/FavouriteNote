@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.js": "/FavouriteNote/static/js/main.4f05cd8a.chunk.js",
+    "main.js.map": "/FavouriteNote/static/js/main.4f05cd8a.chunk.js.map",
+    "runtime~main.js": "/FavouriteNote/static/js/runtime~main.247a3d03.js",
+    "runtime~main.js.map": "/FavouriteNote/static/js/runtime~main.247a3d03.js.map",
+    "static/css/2.2c74ae65.chunk.css": "/FavouriteNote/static/css/2.2c74ae65.chunk.css",
+    "static/js/2.3d8787c6.chunk.js": "/FavouriteNote/static/js/2.3d8787c6.chunk.js",
+    "static/js/2.3d8787c6.chunk.js.map": "/FavouriteNote/static/js/2.3d8787c6.chunk.js.map",
+    "index.html": "/FavouriteNote/index.html",
+    "precache-manifest.120f2bd165bc51c5d3e63bb1b5f28332.js": "/FavouriteNote/precache-manifest.120f2bd165bc51c5d3e63bb1b5f28332.js",
+    "service-worker.js": "/FavouriteNote/service-worker.js",
+    "static/css/2.2c74ae65.chunk.css.map": "/FavouriteNote/static/css/2.2c74ae65.chunk.css.map",
+    "static/media/bulb.svg": "/FavouriteNote/static/media/bulb.af737b55.svg",
+    "static/media/edit.svg": "/FavouriteNote/static/media/edit.2927f8de.svg",
+    "static/media/link.svg": "/FavouriteNote/static/media/link.6fc1d8fe.svg",
+    "static/media/logout.svg": "/FavouriteNote/static/media/logout.0969c92b.svg",
+    "static/media/magnifier.svg": "/FavouriteNote/static/media/magnifier.a14461b8.svg",
+    "static/media/index.css": "/FavouriteNote/static/media/montserrat-latin-900italic.a8ec4957.woff",
+    "static/media/pen.svg": "/FavouriteNote/static/media/pen.84b70f8a.svg",
+    "static/media/plus.svg": "/FavouriteNote/static/media/plus.e43ce6c8.svg",
+    "static/media/twitter.svg": "/FavouriteNote/static/media/twitter.051af8ba.svg"
+  }
+}
