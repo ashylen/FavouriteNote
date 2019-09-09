@@ -11,6 +11,7 @@ export const REMOVE_ITEM_FAILURE = 'REMOVE_ITEM_FAILURE';
 export const AUTH_REQUEST = 'AUTH_REQUEST';
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const AUTH_FAILURE = 'AUTH_FAILURE';
+export const LOGOUT = 'LOGOUT';
 
 export const FETCH_REQUEST = 'FETCH_REQUEST';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
@@ -31,6 +32,10 @@ export const authenticate = (username, password) => dispatch => {
     .catch(() => {
       dispatch({ type: AUTH_FAILURE });
     });
+};
+
+export const logout = () => dispatch => {
+  dispatch({ type: LOGOUT });
 };
 
 export const fetchItems = itemType => (dispatch, getState) => {

@@ -4,9 +4,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 // Utilities
 import withContext from 'hoc/withContext';
+import { logout as logoutAction } from 'actions';
 
 // Components
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
@@ -53,23 +55,32 @@ const StyledLinksList = styled.ul`
   list-style: none;
 `;
 
-const Sidebar = ({ pageContext }) => (
-  <StyledWrapper activeColor={pageContext}>
-    <StyledLogoLink to="/" />
-    <StyledLinksList>
-      <li>
-        <ButtonIcon as={NavLink} to="/notes" icon={penIcon} activeClassName="active" />
-      </li>
-      <li>
-        <ButtonIcon as={NavLink} to="/twitters" icon={twitterIcon} activeClassName="active" />
-      </li>
-      <li>
-        <ButtonIcon as={NavLink} to="/articles" icon={bulbIcon} activeClassName="active" />
-      </li>
-    </StyledLinksList>
-    <StyledLogoutButton as={NavLink} to="/login" icon={logoutIcon} />
-  </StyledWrapper>
-);
+const Sidebar = ({ pageContext, logout }) => {
+  return (
+    <StyledWrapper activeColor={pageContext}>
+      <StyledLogoLink to="/" />
+      <StyledLinksList>
+        <li>
+          <ButtonIcon as={NavLink} to="/notes" icon={penIcon} activeClassName="active" />
+        </li>
+        <li>
+          <ButtonIcon as={NavLink} to="/twitters" icon={twitterIcon} activeClassName="active" />
+        </li>
+        <li>
+          <ButtonIcon as={NavLink} to="/articles" icon={bulbIcon} activeClassName="active" />
+        </li>
+      </StyledLinksList>
+      <StyledLogoutButton
+        as={NavLink}
+        to="/login"
+        onClick={() => {
+          logout();
+        }}
+        icon={logoutIcon}
+      />
+    </StyledWrapper>
+  );
+};
 
 Sidebar.defaultProps = {
   pageContext: 'notes',
@@ -77,6 +88,13 @@ Sidebar.defaultProps = {
 
 Sidebar.propTypes = {
   pageContext: PropTypes.oneOf(['notes', 'twitters', 'articles']),
+  logout: PropTypes.func.isRequired,
 };
 
-export default withContext(Sidebar);
+const mapStateToProps = ({ state }) => ({ state });
+const mapDispatchToProps = dispatch => ({ logout: () => dispatch(logoutAction()) });
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(withContext(Sidebar));

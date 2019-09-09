@@ -52,8 +52,6 @@ const LoginPage = ({ userID, authenticate, isLoginFailed }) => {
       <Formik
         initialValues={{ username: '', password: '' }}
         onSubmit={({ username, password }) => {
-          // console.log(isLoginFailed);
-
           authenticate(username, password);
         }}
       >
@@ -88,6 +86,12 @@ const LoginPage = ({ userID, authenticate, isLoginFailed }) => {
                 </Button>
               </StyledForm>
               {isLoginFailed ? <StyledError>Invalid credentials</StyledError> : null}
+              <pre>
+                *Sandbox credentials* <br />
+                Login: t <br />
+                Password: 123
+              </pre>
+
               <StyledLink to={routes.register}>I want my account!</StyledLink>
             </React.Fragment>
           );
