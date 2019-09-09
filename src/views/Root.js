@@ -31,6 +31,7 @@ const Root = () => (
           <Route path={routes.article} component={DetailsPage} />
           <Route exact path={routes.twitters} component={Twitters} />
           <Route path={routes.twitter} component={DetailsPage} />
+          <Route component={() => <Redirect to="/login" />} />
         </Switch>
       </MainTemplate>
     </BrowserRouter>
